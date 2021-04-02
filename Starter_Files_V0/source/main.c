@@ -90,13 +90,13 @@ static void prvSetupHardware( void );
 void Toggle_Task( void * pvParameters )
 {
 
-    for( ;; )
-    {
-        GPIO_write(PORT_0, PIN0, PIN_IS_HIGH);
-				vTaskDelay( 1000 );
-				GPIO_write(PORT_0, PIN0, PIN_IS_LOW);
-				vTaskDelay( 1000 );
-    }
+	for( ;; )
+	{
+		GPIO_write(PORT_0, PIN0, PIN_IS_HIGH);
+		vTaskDelay( 1000 );
+		GPIO_write(PORT_0, PIN0, PIN_IS_LOW);
+		vTaskDelay( 1000 );
+	}
 }
 
 /*
@@ -113,12 +113,12 @@ int main( void )
 	
 	/* Create the task, storing the handle. */
    xTaskCreate(
-								Toggle_Task,       /* Function that implements the task. */
-								"Toggle Task",          /* Text name for the task. */
-								100,      /* Stack size in words, not bytes. */
-								( void * ) 0,    /* Parameter passed into the task. */
-								1,/* Priority at which the task is created. */
-								&ToggleTaskHandller );      /* Used to pass out the created task's handle. */
+							Toggle_Task,       /* Function that implements the task. */
+							"Toggle Task",          /* Text name for the task. */
+							100,      /* Stack size in words, not bytes. */
+							( void * ) 0,    /* Parameter passed into the task. */
+							1,/* Priority at which the task is created. */
+							&ToggleTaskHandller );      /* Used to pass out the created task's handle. */
 
 
 	/* Now all the tasks have been started - start the scheduler.
